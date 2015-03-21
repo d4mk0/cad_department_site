@@ -1,2 +1,9 @@
 ru:
-  foo: bar
+  activerecord:
+    models:
+      user: Пользователь
+    attributes:
+      user:
+        email: E-mail
+        password: Пароль
+        password_confirmation: Подтверждение пароля
