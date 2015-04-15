@@ -12,9 +12,10 @@ table
     - @docs.each do |doc|
       tr
         td = doc.name
-        td = link_to 'Show', doc
-        td = link_to 'Edit', edit_doc_path(doc)
-        td = link_to 'Destroy', doc, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Версии', versions_path(doc_id: doc.id)
+        td = link_to 'Просмотреть', doc
+        td = link_to 'Редактировать', edit_doc_path(doc)
+        td = link_to 'Удалить', doc, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

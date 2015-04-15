@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Doc:
+  = @version.doc
+p
+  strong Path:
+  = @version.path
+
+= link_to 'Edit', edit_version_path(@version)
+'|
+= link_to 'Back', versions_path

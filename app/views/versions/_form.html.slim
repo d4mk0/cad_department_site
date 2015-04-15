@@ -1,0 +1,10 @@
+= simple_form_for(@version, html: { multipart: true }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :doc, selected: @doc.try(:id)
+    = f.input :path
+    = f.input :file, as: :file
+
+  .form-actions
+    = f.button :submit

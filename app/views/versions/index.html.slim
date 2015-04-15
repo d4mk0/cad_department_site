@@ -1,0 +1,20 @@
+h1 Listing versions
+
+table
+  thead
+    tr
+      th Path
+      th
+      th
+      th
+
+  tbody
+    - @versions.each do |version|
+      tr
+        td = version.path
+        td = link_to 'Скачать', version.download_path
+        td = link_to 'Удалить', version, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Version', new_version_path(doc_id: params[:doc_id])
