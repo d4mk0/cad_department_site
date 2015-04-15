@@ -32,8 +32,7 @@ html lang="ru"
                 li= link_to "Выход", destroy_user_session_path, method: :delete
               - else
                 li= link_to "Вход / Регистрация", new_user_session_path
-              li= link_to "Link 2", "/path2"
-              li= link_to "Link 3", "/path3"
+              li= link_to "Материалы", docs_path
     .container
       .row
         - flash.each do |key, value|
