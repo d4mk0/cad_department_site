@@ -1,0 +1,378 @@
+	 <!doctype html>
+<html>
+<head>
+    <title>SAPR</title>
+    <meta charset="windows-1251">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <link rel="stylesheet" href="css/bootstrap.css" >
+    <link rel="stylesheet" href="css/style.css" >
+    <script src="js/respond.min.js"></script>
+	
+	<script src="js/jquery-2.1.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+		
+</head>
+ 
+
+<body>
+<div class="main-container">
+    <header>
+        <div class="top-menu">
+            <div class="container">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                Меню 
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <span class="glyphicon glyphicon-minus"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <form class="navbar-form navbar-right search-hidden" method="GET" action="/search/">
+                                <input type="text" class="form-control" name="submitted" placeholder="Поиск...">
+                                <button type="submit" class="btn btn-default" name="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </form>
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown ">
+                                    <a href="" class="dropdown-toggle" data-toggle="dropdown">О кафедре</a>
+                                    <ul class="dropdown-menu">
+										
+																					<li><a href="o kafedre.php">О Кафедре</a></li>
+																					<li><a href="Sotrudniki.php">Сотрудники</a></li>
+																					<li><a href="Nauka.php">Научная деятельность</a></li>
+																					<li><a href="Contacts.php">Контакты</a></li>
+																					
+																				
+										
+                                    </ul>
+                                </li>
+                                <li><a href="abiturientam.php">Абитуриентам</a></li>
+                                <li><a href="Studentam.php">Студентам</a></li>
+                                <li><a href="Prepodavatelyam.php">Преподавателям</a></li>
+                                <li><a href="Aspirantura.php">Аспирантура</a></li>
+                                <li><a href="Biblioteka.php">Библиотека</a></li>
+                                <li><a href="News.php">Новости</a></li>
+                                
+                                <li><a href="Raspisanie.php">Расписание</a></li>
+                            </ul>
+                            <form class="navbar-form navbar-right hidden" method="GET" action="/search/">
+                                <input type="text" class="form-control" name="submitted" placeholder="Поиск...">
+                                <button type="submit" class="btn btn-default" name="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </form>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>	
+        </div><!-- .top-menu -->  
+        <div class="container">
+            <div class="row">
+			<br>
+                <div class="col-xs-12 col-sm-6 col-md-8">
+                    <a href="/"><img src="img/SAPR1.png"width="600" height="180"></a>
+                   
+                </div><!-- .col -->
+                
+				
+				
+                <div class="col-xs-12 col-sm-6 col-md-4 authorization">
+					
+                    <div class="login_block">
+                                                    <div id="login_block_enter">
+                                
+                                <form enctype="multipart/form-data" method="post" action="/login/">
+                                    <div class="otstup">
+                                        <div class="input_bgr form-group">
+                                            <input class="form-control name-user" type="text" value="Логин" onblur="if(this.value==''){this.value='Логин'}" onfocus="if(this.value=='Логин'){this.value=''}" name="login" placeholder="">
+                                        </div>
+                                        <div class="input_bgr form-group">
+                                            <input class="form-control bgr_input password" type="password" value="Пароль" placeholder="" onblur="if(this.value==''){this.value='Пароль'}" onfocus="if(this.value=='Пароль'){this.value=''}" name="password">
+                                        </div>
+                                    </div>
+                                    <div class="login_links">
+                                        <input type="submit" class="btn btn-default red col-xs-6" value="Войти">
+                                        <a href="/registration/" class="btn btn-default col-xs-6">Регистрация</a>
+                                            <input type="hidden" name="submitted" value="1">
+                                            <input type="hidden" name="remember" id="remember" value="1">
+                                    </div>
+                                </form>
+                            </div>
+                                            </div>
+                </div><!-- .col -->
+				
+                <div class="clearfix visible-xs visible-sm"></div>
+                
+            </div><!-- .row -->
+			
+			
+            
+		</div><!-- .container -->
+	</header>
+	 
+				
+
+<div class="content" id="inner_header">                                
+    <div class="container">
+		
+		  
+			<div class="row">
+			
+			<div class="col-xs-12 col-sm-7 col-md-8">
+						
+	 		
+		
+	
+	<ol class="breadcrumb">
+		<li><a href="/">Главная страница</a></li>
+		<li class="active">Абитуриентам</li>
+	</ol>
+
+	<h1>Абитуриентам</h1>
+	<div class="user_content">
+				<p style="text-align: justify;">
+				<span style="font-family: arial, helvetica, sans-serif;">
+				
+				
+	
+	Образовательные программы:
+	<br><br>
+230100.62 - «Информатика и вычислительная техника» (бакалавриат) и 230101 -  «Системы автоматизированного проектирования» (специалитет):
+<br><br>
+Профиль: «Системы автоматизированного проектирования»
+<br><br>
+Срок обучения:
+<br><br>
+4 года (бакалавры), 5 лет (специалисты)
+<br><br>
+Форма обучения:
+<br><br>
+очная форма обучения, (федеральный бюджет, обучение с оплатой стоимости)<br><br>
+Квалификация:<br><br>
+Бакалавр, специалист<br><br>
+Область профессиональной деятельности:<br><br>
+·         автоматизированные системы обработки информации и управления;<br>
+·         системы автоматизированного проектирования;<br>
+·         программное обеспечение средств вычислительной техники и автоматизированных систем (программы, программные комплексы и системы);<br>
+·         информационное, техническое, организационное и правовое обеспечение перечисленных систем.<br><br>
+Объекты профессиональной деятельности:<br><br>
+·         вычислительные машины, комплексы, системы и сети;<br>
+·         автоматизированные системы обработки информации и управления;<br>
+·         системы автоматизированного проектирования;<br>
+·         программное обеспечение средств вычислительной техники и автоматизированных систем (программы, программные комплексы и системы);<br>
+·         математическое, информационное, техническое, эргономическое, организационное и правовое обеспечение перечисленных систем.<br>
+<br>
+Виды профессиональной деятельности:<br><br>
+·         проектно-конструкторская;<br>
+·         производственно-технологическая;<br>
+·         научно-исследовательская;<br>
+·         организационно-управленческая;<br>
+·         эксплуатационная.<br><br>
+Основные дисциплины:<br><br>
+«WEB-дизайн», «Информационные системы», «Компьютерная графика», «Лингвистическое и программное обеспечение», «Мультимедийные технологии», «Объектно-ориентированное программирование», «Операционные системы», «Программирование», «Сети и телекоммуникации», «Технологии разработки ПО», «Базы данных», «Разработка САПР», «Основы теории управления», «Интеллектуальные подсистемы САПР», «Математическая логика и теория алгоритмов»
+ <br><br>
+Вступительные испытания:
+ <br><br>
+экзамены в объеме требований, предъявляемых государственным образовательным стандартом к образованию бакалавра по направлению 230100.62 «Информатика и вычислительная техника» либо специалиста по направлению 230104 «Системы автоматизированного проектирования».
+ <br><br>
+для абитуриентов, имеющих базовое образование по направлениям 230100.62 или 230104 - результаты сдачи государственного экзамена.
+ <br><br>
+
+Учащийся  по  направлению 230100.62 «Информатика и вычислительная техника»  по  профилю  «Системы автоматизированного проектирования» или специальности 230104 - «Системы автоматизированного проектирования» освоит:<br><br>
+         основы, особенности   и   перспективные   технологии   профессионального программирования, опыт создания программных продуктов  и систем;<br>
+         основы и системы компьютерной графики, мультимедиа и виртуальной реальности;<br>
+         методы и  алгоритмы решения основных проектных оптимизационных технических задач, эволюционное моделирование и генетические алгоритмы;<br>
+         методы искусственного интеллекта, экспертные системы;<br>
+         процессы автоматизированного проектирования печатных плат, больших и сверхбольших интегральных схем и конструкций электронной и вычислительной аппаратуры<br>
+         использования передовых технологий, локальных, глобальных и других информационно-вычислительных сетей, современных средства телекоммуникации, INTERNET;<br>
+         использования средств компьютерной графики и графического диалога;<br>
+         работа с различного рода базами данных и банками данных;<br>
+         применения компьютерных математических моделей и методов для анализа данных.<br>
+ 
+<br>
+010500.62 – «Математическое обеспечение и администрирование информационных систем» (бакалавриат) и 010503 -  «Математическое обеспечение и администрирование информационных систем» (специалитет). 
+<br><br>
+Профиль: «Администрирование информационных систем»
+<br><br>
+Срок обучения:<br><br>
+4 года (бакалавры), 5 лет (специалисты)<br><br>
+Форма обучения:<br><br>
+очная форма обучения, (федеральный бюджет, обучение с оплатой стоимости)<br><br>
+Квалификация:<br><br>
+Бакалавр, специалист<br><br>
+Область профессиональной деятельности:<br><br>
+·         администрирование  компьютерных сетей, банков и баз данных;<br>
+·         разработкой систем автоматизированного проектирования, информационных, вычислительных, экспертных систем, систем искусственного интеллекта и беспроводных сетей;<br>
+·         проектированием коммерческих и офисных приложений;<br>
+·         моделирование 3D объектов;<br>
+·         создание  цифровых карт;<br>
+·         способы производства программного обеспечения, его сопровождения, эксплуатации и администрирования в различных областях.<br>
+<br>
+Объекты профессиональной деятельности:<br><br>
+·         вычислительные машины, комплексы, системы и сети;<br>
+·         автоматизированные системы обработки информации и управления;<br>
+·         программное обеспечение средств вычислительной техники и автоматизированных систем (программы, программные комплексы и системы);<br>
+·         математическое, информационное, техническое, эргономическое, организационное и правовое обеспечение перечисленных систем.<br><br>
+Виды профессиональной деятельности:<br><br>
+·         проектирование, разработка и сопровождение программного обеспечения;<br>
+·         администрирование автоматизированных информационных систем различных профилей в исследовательских и проектных организациях, информационных центрах, административных и коммерческих структурах.<br>
+·         Педагогическая деятельность.<br>
+Основные дисциплины:<br><br>
+«WEB-дизайн», «Архитектура вычислительных систем и компьютерных сетей», «Администрирование информационных систем», «Компьютерная графика», «Мультимедийные технологии», «Объектно-ориентированное программирование»,  «Программирование», «Сети и телекоммуникации», «Технологии разработки ПО», «Базы данных», «САПР», «Основы теории управления», «Рекурсивно-логическое программирование», «Структуры и алгоритмы»,  «Функциональное программирование», «Параллельное программирование».
+<br><br>
+Вступительные испытания:
+<br><br> 
+экзамен в объеме требований, предъявляемых государственным образовательным стандартом к образованию бакалавра по направлению 010500.62 «Математическое обеспечение и администрирование информационных систем» или специальности 010503 - «Математическое обеспечение и администрирование информационных систем».
+ <br><br>
+для абитуриентов, имеющих базовое образование по направлениям 010500.62 или 010503 - результаты сдачи государственного экзамена.
+ 
+<br><br>
+Учащийся  по направлению 010500.62 «Математическое обеспечение и администрирование информационных систем» или специальности 010503 «Математическое обеспечение и администрирование информационных систем» будет иметь опыт:
+<br><br>
+         администрирования информационных систем, проектирования для компьютеров и автоматизированных систем программного обеспечения прикладного, инструментального и системного характера на основе современных методов, средств и технологий создания, сопровождения и администрирования математического и программного продукта, систем автоматизированного проектирования программного обеспечения;
+         <br>
+		 оценки качества программ и программных систем на этапах проектирования, сопровождения, а также модернизации математического, алгоритмического и программного обеспечения с целью повышения надежности и эффективности его функционирования;
+         <br>
+		 разработки методов, средств и технологий применения математического и программного обеспечения вычислительной техники  в научных исследованиях и проектно-конструкторской деятельности, управлении технологическими, экономическими, социальными системами и в гуманитарных областях деятельности человека.
+         <br>
+		 разработки (на основе действующих стандартов) документации для различных категорий лиц, участвующих в создании, эксплуатации и сопровождении программ;
+
+	
+
+</div>
+	
+	
+	
+	
+
+				</div><!-- .col -->	
+				<ol class="breadcrumb">
+		
+		<li class="active">Объявления</li>
+	</ol>
+<div class="col-xs-12 col-sm-5 col-md-4 right-sidebar">
+                    
+                   
+
+                    <div class="row">
+                        
+						
+						<div class="col-xs-12 col-sm-5 col-md-4 tab-box box-widget">
+							<div class="mini-menu">
+   <ul>
+      <li>
+	<a href="#">Абитуриентам</a>
+	<ul>
+	   
+	   <p>Внимание, прием документов по специальности 230104 продлится до 20.07.2016</p>
+	   <li><a href="#">Подробнее</a></li>
+	   
+	   <li><a href="#">Ссылка - 4</a></li>
+	</ul>
+      </li>
+      <li>
+	<a href="#">Студентам</a>
+	<ul>
+	   <p>Внимание студентов группы 10ВА1! Занятия по компьютерной графике 28.03.15 переносится на 5.04.15 в 13:45</p>
+	   <li><a href="#">Ссылка - 2</a></li>
+	   <li><a href="#">Ссылка - 3</a></li>
+	   <li><a href="#">Ссылка - 4</a></li>
+	 </ul>
+     </li>
+     <li>
+	<a href="#">Трудоустройство</a>
+	<ul>
+	   <li><a href="#">Ссылка - 1</a></li>
+	   <li><a href="#">Ссылка - 2</a></li>
+	   <li><a href="#">Ссылка - 3</a></li>
+	   <li><a href="#">Ссылка - 4</a></li>
+	</ul>
+     </li>
+    </ul>
+  </div>
+						</div>
+					
+						
+                    </div>
+                    
+
+                </div> 
+			
+				
+				
+					
+			</div><!-- .row -->
+		
+		  
+    
+   </div><!-- .container -->
+</div><!-- .content -->    
+<footer>
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3 col-md-3 w-xs">
+                    <p class="name">САПР</p>
+                    <ul class="list-unstyled">
+                        <li><a href="o kafedre.php">О Кафедре</a></li>
+                        <li><a href="abiturientam.php">Абитуриентам</a></li>
+                                <li><a href="Studentam.php">Студентам</a></li>
+                                <li><a href="Prepodavatelyam.php">Преподавателям</a></li>
+                                <li><a href="Aspirantura.php">Аспирантура</a></li>
+                                <li><a href="Biblioteka.php">Библиотека</a></li>
+                                <li><a href="News.php">Новости</a></li>
+                        <li><a href="Raspisanie.php">Расписание</a></li>
+                    </ul>
+                </div><!-- .col -->	
+                <div class="col-xs-6 col-sm-5 col-md-4 w-xs">
+                    <p class="name">Скачать</p>
+                    <ul class="list-unstyled">
+						<li><a href="Ukazaniya.php">Методические указания</a></li>
+						<li><a href="Laboratornie.php">Лабораторные работы </a></li>
+						<li><a href="Zadaniya.php">Задания на курсовое проектирование</a></li>
+																												
+													                    </ul>
+                </div><!-- .col -->	
+                <div class="clearfix visible-xs"></div>
+                <div class="col-xs-12 col-sm-4 col-md-offset-1 col-md-3 contact-inf">
+				 <p class="name">Наш адрес</p>
+                    <p class="address">г.Пенза, ПГУ<br>ул. Красная, 40<br>7 корпус<br>2 этаж</p>
+<p class="phone">+7 (8412) 36-82-47</p>
+                </div><!-- .col -->	
+            </div><!-- .row -->
+        </div><!-- .footer-top -->	
+    </div><!-- .footer-top -->	    
+    <div class="development">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <span class="gray">Copyright ©</span> <i class="icon-logo"></i>САПР 2015
+                </div><!-- .col -->	
+            </div><!-- .row -->
+        </div>
+    </div>
+</footer>
+</div>
+
+
+<div class="highslide-container" style="padding: 0px; border: none; margin: 0px; position: absolute; left: 0px; top: 0px; width: 100%; z-index: 1001; direction: ltr;"><a class="highslide-loading" title="Нажмите для отмены" href="javascript:;" style="position: absolute; top: -9999px; opacity: 0.75; z-index: 1;">Загружается...</a><div style="display: none;"></div><div class="highslide-viewport highslide-viewport-size" style="padding: 0px; border: none; margin: 0px; visibility: hidden;"></div><table cellspacing="0" style="padding: 0px; border: none; margin: 0px; visibility: hidden; position: absolute; border-collapse: collapse; width: 0px;"><tbody style="padding: 0px; border: none; margin: 0px;"><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 28px; width: 28px; background: url(http://insertum.com/js/highslide/graphics/outlines/custom.png) 0px 0px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 28px; width: 28px; background: url(http://insertum.com/js/highslide/graphics/outlines/custom.png) 0px -56px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 28px; width: 28px; background: url(http://insertum.com/js/highslide/graphics/outlines/custom.png) -28px 0px;"></td></tr><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 28px; width: 28px; background: url(http://insertum.com/js/highslide/graphics/outlines/custom.png) 0px -112px;"></td><td class="custom highslide-outline" style="padding: 0px; border: none; margin: 0px; position: relative;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 28px; width: 28px; background: url(http://insertum.com/js/highslide/graphics/outlines/custom.png) -28px -112px;"></td></tr><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 28px; width: 28px; background: url(http://insertum.com/js/highslide/graphics/outlines/custom.png) 0px -28px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 28px; width: 28px; background: url(http://insertum.com/js/highslide/graphics/outlines/custom.png) 0px -84px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 28px; width: 28px; background: url(http://insertum.com/js/highslide/graphics/outlines/custom.png) -28px -28px;"></td></tr></tbody></table></div></body>
+
+<!-- JS код -->
+<script type="text/javascript">
+$(function() {
+	$(".mini-menu > ul > li > a").click(function() {
+		var ul = $(this).next(),
+				clone = ul.clone().css({"height":"auto"}).appendTo(".mini-menu"),
+				height = ul.css("height") === "0px" ? ul[0].scrollHeight + "px" : "0px";
+		clone.remove();
+		ul.animate({"height":height});
+		return false;
+	});
+});
+</script>
+</body>
+</html> 
