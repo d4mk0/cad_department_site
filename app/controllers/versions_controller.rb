@@ -1,15 +1,11 @@
 class VersionsController < ApplicationController
-  before_action :set_doc, only: [:index, :new]
+  before_action :set_doc
   before_action :set_version, only: [:show, :edit, :update, :destroy]
 
   # GET /versions
   # GET /versions.json
   def index
-    @versions = if @doc.present?
-        @doc.versions
-      else
-        Version.all
-      end
+    @versions = @doc.versions
   end
 
   # GET /versions/1
@@ -19,7 +15,7 @@ class VersionsController < ApplicationController
 
   # GET /versions/new
   def new
-    @version = Version.new
+    @version = @doc.versions.new
   end
 
   # GET /versions/1/edit
@@ -29,7 +25,7 @@ class VersionsController < ApplicationController
   # POST /versions
   # POST /versions.json
   def create
-    @version = Version.create(version_params)
+    @version = @doc.versions.create(version_params)
 
     uploaded_io = params[:version][:file]
     file_name = @version.file_name(uploaded_io.original_filename)
@@ -40,7 +36,7 @@ class VersionsController < ApplicationController
     @version.update path: file_name
 
       if @version.save
-        redirect_to versions_path(doc_id: @version.doc_id), notice: 'Новая версия была добавлена'
+        redirect_to @doc, notice: 'Новая версия была добавлена'
       else
         render :new
       end
@@ -75,13 +71,13 @@ class VersionsController < ApplicationController
     @doc = Doc.find_by(id: params[:doc_id])
   end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_version
-      @version = Version.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_version
+    @version = Version.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def version_params
-      params.require(:version).permit(:doc_id, :path)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def version_params
+    params.require(:version).permit(:doc_id, :path)
+  end
 end

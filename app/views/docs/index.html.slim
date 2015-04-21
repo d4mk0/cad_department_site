@@ -1,22 +1,30 @@
-h1 Listing docs
+h1 Список материалов
 
-table
+
+= link_to 'Новый материал', new_doc_path, class: 'btn btn-success'
+
+br
+table.table.table-hover
   thead
     tr
-      th Name
-      th
-      th
+      th Название
+      th Время обновления
       th
 
   tbody
     - @docs.each do |doc|
       tr
-        td = doc.name
-        td = link_to 'Версии', versions_path(doc_id: doc.id)
-        td = link_to 'Просмотреть', doc
-        td = link_to 'Редактировать', edit_doc_path(doc)
-        td = link_to 'Удалить', doc, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to doc.name, doc
+        td = doc.version_updated_at
+        td
+          .btn-group role="group"
+            = link_to doc.download_link, class: 'btn btn-primary', title: 'Скачать' do
+              .fa.fa-download.fa-fw
+            = link_to edit_doc_path(doc), class: 'btn btn-warning', title: 'Редактировать' do
+              .fa.fa-edit.fa-fw
+            = link_to doc, class: 'btn btn-danger', title: 'Удалить', data: { confirm: 'Вы уверены?' }, method: :delete do
+              .fa.fa-trash.fa-fw
 
 br
 
-= link_to 'New Doc', new_doc_path
+= link_to 'Новый материал', new_doc_path, class: 'btn btn-success'

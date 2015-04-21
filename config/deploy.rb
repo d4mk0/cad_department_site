@@ -8,7 +8,7 @@ set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 set :rails_env, "production"
 
 set :linked_files, %w{ config/database.yml config/secrets.yml config/unicorn.rb }
-set :linked_dirs, %w{ bin log tmp/pids tmp/cache tmp/sockets vendor/bundle }
+set :linked_dirs, %w{ bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/versions}
 
 namespace :deploy do
   after :publishing, :restart

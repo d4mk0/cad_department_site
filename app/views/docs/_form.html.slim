@@ -1,8 +1,11 @@
-= simple_form_for(@doc) do |f|
+= simple_form_for(@doc, html: { multipart: true }) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :name
+  .form-inputs
+    = f.simple_fields_for :versions do |v|
+      = v.input :file, as: :file
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Создать материал'

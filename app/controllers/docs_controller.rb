@@ -16,6 +16,7 @@ class DocsController < ApplicationController
   # GET /docs/new
   def new
     @doc = Doc.new
+    @doc.versions.build
   end
 
   # GET /docs/1/edit
@@ -25,11 +26,20 @@ class DocsController < ApplicationController
   # POST /docs
   # POST /docs.json
   def create
+    uploaded_io = params[:doc][:versions_attributes]["0"][:file]
+    file_name = "#{SecureRandom.hex(5)}_#{uploaded_io.original_filename}"
+    file_path = Rails.root.join('public', 'versions', file_name)
+    File.open(file_path, 'wb') do |file|
+      file.write(uploaded_io.read)
+    end
+    params[:doc][:versions_attributes]["0"].delete(:file)
+    params[:doc][:versions_attributes]["0"][:path] = file_name
+
     @doc = current_user.docs.new(doc_params)
 
     respond_to do |format|
       if @doc.save
-        format.html { redirect_to @doc, notice: 'Doc was successfully created.' }
+        format.html { redirect_to @doc, notice: 'Материал был успешно загружен' }
         format.json { render :show, status: :created, location: @doc }
       else
         format.html { render :new }
@@ -43,7 +53,7 @@ class DocsController < ApplicationController
   def update
     respond_to do |format|
       if @doc.update(doc_params)
-        format.html { redirect_to @doc, notice: 'Doc was successfully updated.' }
+        format.html { redirect_to @doc, notice: 'Материал был успешно обновлён' }
         format.json { render :show, status: :ok, location: @doc }
       else
         format.html { render :edit }
@@ -57,19 +67,19 @@ class DocsController < ApplicationController
   def destroy
     @doc.destroy
     respond_to do |format|
-      format.html { redirect_to docs_url, notice: 'Doc was successfully destroyed.' }
+      format.html { redirect_to docs_url, notice: 'Материал был успешно удалён' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_doc
-      @doc = Doc.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_doc
+    @doc = Doc.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def doc_params
-      params.require(:doc).permit(:name)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def doc_params
+    params.require(:doc).permit(:name, versions_attributes: [:path])
+  end
 end

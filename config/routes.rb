@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :versions, except: :show
-
-  resources :docs
+  resources :docs do
+    resources :versions, only: [:new, :create, :destroy]
+  end
 
   root to: "home#index"
 
