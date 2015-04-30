@@ -1,8 +1,8 @@
 class CreateDisciplines < ActiveRecord::Migration
   def change
     create_table :disciplines do |t|
-      t.string :name, null: false, default: ''
-      t.text :description, null: false, default: ''
+      t.string :name, null: false
+      t.text :description, null: false
 
       t.timestamps null: false
     end
