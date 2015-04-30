@@ -9,6 +9,7 @@ table.table.table-hover
     tr
       th Название
       th Время обновления
+      th Автор
       th
 
   tbody
@@ -16,6 +17,7 @@ table.table.table-hover
       tr
         td = link_to doc.name, doc
         td = doc.version_updated_at
+        td = doc.user.short_name
         td
           .btn-group role="group"
             = link_to doc.download_link, class: 'btn btn-primary', title: 'Скачать' do

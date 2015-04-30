@@ -2,8 +2,22 @@ ru:
   activerecord:
     models:
       user: Пользователь
+      doc: Материал
+      version: Версия
+      discipline: Дисциплина
     attributes:
       user:
         email: E-mail
         password: Пароль
         password_confirmation: Подтверждение пароля
+        current_password: Текущий пароль
+        first_name: Имя
+        last_name: Фамилия
+        patronymic: Отчество
+      doc:
+        name: Название
+      version:
+        file: Файл
+      discipline:
+        name: Название
+        description: Описание

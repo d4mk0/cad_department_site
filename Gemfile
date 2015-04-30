@@ -19,6 +19,7 @@ gem 'font-awesome-sass', '~> 4.3.0'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'russian'
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   gem 'byebug'

@@ -29,6 +29,7 @@ html lang="ru"
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
               - if current_user.present?
+                li= link_to "Редактировать профиль", edit_user_registration_path
                 li= link_to "Выход", destroy_user_session_path, method: :delete
               - else
                 li= link_to "Вход / Регистрация", new_user_session_path

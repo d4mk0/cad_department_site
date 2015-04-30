@@ -22,6 +22,9 @@
       = f.input :email, required: true, autofocus: true
       = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable)
       = f.input :password_confirmation, required: true
+      = f.input :first_name
+      = f.input :last_name
+      = f.input :patronymic
 
     .form-actions
       = f.button :submit, "Зарегистрироваться", class: 'btn btn-primary'
