@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   ActiveAdmin.routes(self)
   resources :disciplines
 
@@ -9,4 +10,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   devise_for :users
+
+  # Next route should be placed at the bottom of the list of routes
+  match '*path', to: 'home#page', via: :get
 end

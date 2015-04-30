@@ -104,7 +104,7 @@ ActiveAdmin.setup do |config|
   # link. For example :get, :delete, :put, etc..
   #
   # Default:
-  # config.logout_link_method = :get
+  config.logout_link_method = :delete
 
   # == Root
   #
@@ -177,7 +177,7 @@ ActiveAdmin.setup do |config|
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
   #
   # To load a javascript file:
-  #   config.register_javascript 'my_javascript.js'
+  config.register_javascript 'ckeditor/init.js'
 
   # == CSV options
   #

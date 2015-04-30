@@ -20,6 +20,9 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'russian'
 gem 'activeadmin', github: 'activeadmin'
+gem 'ckeditor'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug'

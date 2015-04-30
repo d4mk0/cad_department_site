@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
-  def index
+  def page
+    @page = Page.find_by permalink: params[:path]
+    not_found unless @page.present?
   end
 end
