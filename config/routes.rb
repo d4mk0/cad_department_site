@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ads, only: [:index, :show]
+
   mount Ckeditor::Engine => '/ckeditor'
   ActiveAdmin.routes(self)
   resources :disciplines
