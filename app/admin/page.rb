@@ -4,7 +4,6 @@ ActiveAdmin.register Page do
     permitted = [:title, :text, :published, :permalink]
   end
 
-
   index do
     column :title
     column :permalink

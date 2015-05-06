@@ -1,0 +1,17 @@
+- content_for :breadcrumbs do
+  ol.breadcrumb
+    li
+      a href=root_path  Главная
+    li.active Новости
+
+
+.col-md-10.col-md-offset-1
+  - @news.each do |news|
+    article.clearfix
+      .post-date
+        = news.created_at
+      h2
+        = link_to news.title, news
+      p
+        = news.short_description.html_safe
+        = link_to "Читать полностью", news

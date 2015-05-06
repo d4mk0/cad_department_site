@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :news
+
   resources :ads, only: [:index, :show]
 
   mount Ckeditor::Engine => '/ckeditor'
