@@ -14,5 +14,13 @@ ActiveAdmin.register Ad do
 #   permitted
 # end
 
+  form do |f|
+    f.inputs do
+      f.input :title
+      f.input :published
+      f.input :text, as: :ckeditor
+    end
+    f.actions
+  end
 
 end

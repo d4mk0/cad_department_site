@@ -1,7 +1,7 @@
 class AdsController < InheritedResources::Base
 
   def index
-    @ads = Ad.published	
+    @ads = Ad.for_front.page(params[:page]).per(params[:per_page])
   end
 
 end

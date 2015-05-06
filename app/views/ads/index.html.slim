@@ -1,25 +1,12 @@
-h1 Listing ads
+h1 Список объявлений
 
-table
-  thead
-    tr
-      th Title
-      th Text
-      th Published
-      th
-      th
-      th
+.text-center = paginate @ads, theme: 'twitter-bootstrap-3'
 
-  tbody
-    - @ads.each do |ad|
-      tr
-        td = ad.title
-        td = ad.text
-        td = ad.published
-        td = link_to 'Show', ad
-        /td = link_to 'Edit', edit_ad_path(ad)
-        /td = link_to 'Destroy', ad, data: {:confirm => 'Are you sure?'}, :method => :delete
+.row
+  - @ads.each do |ad|
+    .col-md-6
+      .bs-callout.bs-callout-info
+        h4 = ad.title
+        p = ad.text.html_safe
 
-br
-
-/= link_to 'New Ad', new_ad_path
+.text-center = paginate @ads, theme: 'twitter-bootstrap-3'

@@ -23,6 +23,9 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'ransack'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 group :development, :test do
   gem 'byebug'

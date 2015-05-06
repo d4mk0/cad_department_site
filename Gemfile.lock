@@ -67,6 +67,9 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
@@ -282,6 +285,7 @@ DEPENDENCIES
   activeadmin!
   better_errors
   binding_of_caller
+  bootstrap-kaminari-views
   bootstrap-sass (~> 3.3.1)
   byebug
   capistrano (~> 3.2.0)
@@ -295,10 +299,12 @@ DEPENDENCIES
   font-awesome-sass (~> 4.3.0)
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   mini_magick
   mysql2
   quiet_assets
   rails (= 4.2.0)
+  ransack
   russian
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
