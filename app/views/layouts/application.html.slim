@@ -19,22 +19,67 @@ html lang="ru"
 
 
   body
-    .navbar.navbar-default.navbar-static-top
+    header
+      .top-menu
         .container
-          button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand href=root_path Сайт кафедры САПР
-          .navbar-collapse.collapse.navbar-responsive-collapse
-            ul.nav.navbar-nav
-              - if current_user.present?
-                li= link_to "Редактировать профиль", edit_user_registration_path
-                li= link_to "Выход", destroy_user_session_path, method: :delete
-              - else
-                li= link_to "Вход / Регистрация", new_user_session_path
-              li= link_to "Материалы", docs_path
-              li= link_to "Объявления", ads_path
+          nav.navbar.navbar-default role="navigation" 
+              .navbar-header
+                button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
+                  | Ìåíþ
+                  span.glyphicon.glyphicon-plus
+                  span.glyphicon.glyphicon-minus
+              #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                / form.navbar-form.navbar-right.search-hidden action="/search/" method="GET" 
+                /   input.form-control name="submitted" placeholder="Ïîèñê..." type="text" /
+                /   button.btn.btn-default name="submit" type="submit" 
+                /     span.glyphicon.glyphicon-search
+                ul.nav.navbar-nav
+                  li.dropdown
+                    a.dropdown-toggle data-toggle="dropdown" href=""
+                      |О кафедре
+                      span.caret
+                    ul.dropdown-menu
+                      li
+                        a href="/about" О кафедре
+                      li
+                        a href="/employees" Сотрудники
+                      li
+                        a href="/scientific_activity" Научная деятельность
+                      li
+                        a href="/contacts" Контакты
+
+                  li.dropdown
+                    a.dropdown-toggle data-toggle="dropdown" href=""
+                      |Информация
+                      span.caret
+                    ul.dropdown-menu
+                      li
+                        a href="/for_applicants" Абитуриентам
+                      li
+                        a href="/for_students"  Студентам
+                      li
+                        a href="/for_teachers"  Преподавателям
+                      li
+                        a href="/postgraduate_school"  Аспирантура
+                  li
+                    a href="/library" Библиотека
+                  li
+                    a href="/news"  Новости
+                  li
+                    a href="/time_table"  Расписание
+                  li= link_to "Материалы", docs_path
+                  li= link_to "Объявления", ads_path
+                  - if current_user.present?
+                    li= link_to "Редактировать профиль", edit_user_registration_path
+                    li= link_to "Выход", destroy_user_session_path, method: :delete
+                  - else
+                    li= link_to "Вход / Регистрация", new_user_session_path
+                / form.navbar-form.navbar-right.hidden action="/search" method="GET"
+                /   input.form-control name="submitted" placeholder="Поиск" type="text"
+                /   button.btn.btn-default name="submit" type="submit"
+                /     span.glyphicon.glyphicon-search
+
+
     .container
       .row
         - flash.each do |key, value|
