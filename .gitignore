@@ -16,3 +16,4 @@
 !/log/.keep
 /tmp
 /public/versions/*
+/public/uploads/
