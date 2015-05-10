@@ -1,0 +1,15 @@
+= simple_form_for(@employee) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :full_name
+    = f.input :photo
+    = f.input :post
+    = f.input :academic_degree
+    = f.input :academic_title
+    = f.input :description
+    = f.input :published
+    = f.input :position
+
+  .form-actions
+    = f.button :submit

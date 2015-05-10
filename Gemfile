@@ -28,6 +28,8 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'masonry-rails'
 gem 'imagesLoaded_rails'
+gem 'activeadmin-sortable'
+gem 'acts_as_list'
 
 group :development, :test do
   gem 'byebug'

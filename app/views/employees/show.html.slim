@@ -1,0 +1,33 @@
+- content_for :breadcrumbs do
+  ol.breadcrumb
+    li
+      a href=root_path  Главная
+    li
+      a href=employees_path  Сотрудники
+    li.active = @employee.full_name
+
+
+p
+  strong Full name:
+  = @employee.full_name
+p
+  strong Photo:
+  = @employee.photo
+p
+  strong Post:
+  = @employee.post
+p
+  strong Academic degree:
+  = @employee.academic_degree
+p
+  strong Academic title:
+  = @employee.academic_title
+p
+  strong Description:
+  = @employee.description
+p
+  strong Published:
+  = @employee.published
+p
+  strong Position:
+  = @employee.position

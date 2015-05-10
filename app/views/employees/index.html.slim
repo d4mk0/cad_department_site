@@ -1,0 +1,26 @@
+- content_for :breadcrumbs do
+  ol.breadcrumb
+    li
+      a href=root_path  Главная
+    li.active Сотрудники
+
+
+h1 Список сотрудников
+
+table.table.table-hover
+  thead
+    tr
+      th = Employee.human_attribute_name(:full_name)
+      th = Employee.human_attribute_name(:photo)
+      th = Employee.human_attribute_name(:post)
+      th = Employee.human_attribute_name(:contact_details)
+
+  tbody
+    - @employees.each do |employee|
+      tr
+        td = link_to employee.full_name, employee
+        td
+          = link_to employee do
+            = image_tag employee.photo.thumb, class: 'img-thumbnail'
+        td = employee.post
+        td = employee.contact_details

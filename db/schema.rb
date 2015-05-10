@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506062828) do
+ActiveRecord::Schema.define(version: 20150510084909) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -67,6 +67,20 @@ ActiveRecord::Schema.define(version: 20150506062828) do
   end
 
   add_index "docs", ["user_id"], name: "index_docs_on_user_id", using: :btree
+
+  create_table "employees", force: :cascade do |t|
+    t.string   "full_name",       limit: 255,                   null: false
+    t.string   "photo",           limit: 255
+    t.string   "post",            limit: 255,                   null: false
+    t.string   "academic_degree", limit: 255
+    t.string   "academic_title",  limit: 255
+    t.text     "description",     limit: 65535,                 null: false
+    t.boolean  "published",       limit: 1,     default: false, null: false
+    t.integer  "position",        limit: 4
+    t.string   "contact_details", limit: 255
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+  end
 
   create_table "news", force: :cascade do |t|
     t.string   "title",             limit: 255,                   null: false

@@ -5,6 +5,7 @@ ActiveAdmin.register Page do
   end
 
   index do
+    selectable_column
     column :title
     column :permalink
     column :published

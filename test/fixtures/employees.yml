@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  photo: MyString
+  post: MyString
+  academic_degree: MyString
+  academic_title: MyString
+  description: MyText
+  published: false
+  position: 1
+
+two:
+  full_name: MyString
+  photo: MyString
+  post: MyString
+  academic_degree: MyString
+  academic_title: MyString
+  description: MyText
+  published: false
+  position: 1
