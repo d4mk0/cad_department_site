@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :timetables, only: [:index, :show]
   resources :employees, only: [:index, :show]
   resources :news, only: [:index, :show]
   resources :ads, only: [:index, :show]

@@ -1,0 +1,11 @@
+- content_for :breadcrumbs do
+  ol.breadcrumb
+    li
+      a href=root_path  Главная
+    li.active Расписание
+
+- @timetables.each do |timetable|
+  = link_to timetable do
+    .col-md-3.bs-callout.bs-callout-info
+      .text-center
+        h1= timetable.title

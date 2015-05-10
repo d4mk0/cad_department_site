@@ -1,0 +1,10 @@
+= simple_form_for(@timetable) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :position
+    = f.input :title
+    = f.input :code
+
+  .form-actions
+    = f.button :submit

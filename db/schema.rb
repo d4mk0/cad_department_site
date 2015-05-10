@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510084909) do
+ActiveRecord::Schema.define(version: 20150510094633) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -102,6 +102,15 @@ ActiveRecord::Schema.define(version: 20150510084909) do
   end
 
   add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
+
+  create_table "timetables", force: :cascade do |t|
+    t.string   "title",      limit: 255,                   null: false
+    t.text     "code",       limit: 65535,                 null: false
+    t.boolean  "published",  limit: 1,     default: false, null: false
+    t.integer  "position",   limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "",    null: false

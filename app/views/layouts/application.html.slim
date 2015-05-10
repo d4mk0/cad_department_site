@@ -64,8 +64,7 @@ html lang="ru"
                     a href="/library" Библиотека
                   li
                     a href="/news"  Новости
-                  li
-                    a href="/time_table"  Расписание
+                  li = link_to "Расписание", timetables_path
                   li= link_to "Материалы", docs_path
                   li= link_to "Объявления", ads_path
                   - if current_user.present?

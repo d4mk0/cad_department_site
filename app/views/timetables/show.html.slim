@@ -1,0 +1,12 @@
+- content_for :breadcrumbs do
+  ol.breadcrumb
+    li
+      a href=root_path  Главная
+    li
+      a href=timetables_path  Расписание
+    li.active = @timetable.title
+
+.col-md-10.col-md-offset-1
+  .text-center
+    h1 = "Расписание: #{@timetable.title}"
+  = @timetable.code.html_safe
