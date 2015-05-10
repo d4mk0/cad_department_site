@@ -26,6 +26,8 @@ gem 'mini_magick'
 gem 'ransack'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'masonry-rails'
+gem 'imagesLoaded_rails'
 
 group :development, :test do
   gem 'byebug'

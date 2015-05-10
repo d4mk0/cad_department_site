@@ -9,3 +9,6 @@
 .col-md-10.col-md-offset-1
   h2 = @news.title
   p = @news.text.html_safe
+  .text-center
+    script charset="utf-8" src="//yastatic.net/share/share.js" type="text/javascript" 
+    .yashare-auto-init data-yasharel10n="ru" data-yasharequickservices="vkontakte,facebook,twitter,moimir" data-yasharetheme="counter" data-yasharetype="small"  data-yasharetitle=@news.title
