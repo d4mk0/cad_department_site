@@ -1,6 +1,8 @@
 class DocsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_doc, only: [:show, :edit, :update, :destroy]
+  before_action :check_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_permissions, only: [:update, :destroy]
 
   # GET /docs
   # GET /docs.json
@@ -81,5 +83,19 @@ class DocsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def doc_params
     params.require(:doc).permit(:name, versions_attributes: [:path])
+  end
+
+  def check_user
+    unless current_user.can_upload_doc?
+      flash[:error] = 'У вас нет прав на выгрузку'
+      redirect_to docs_url
+    end
+  end
+
+  def check_permissions
+    unless current_user.can_manage_doc?(@doc)
+      flash[:error] = 'Отсутствуют права доступа'
+      redirect_to docs_url
+    end
   end
 end

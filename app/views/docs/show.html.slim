@@ -7,15 +7,16 @@ p
     = link_to @doc.download_link, class: 'btn btn-primary' do
       .fa.fa-download.fa-fw
       | Скачать
-    = link_to new_doc_version_path(@doc), class: 'btn btn-info' do
-      .fa.fa-upload.fa-fw
-      | Обновить материал
-    = link_to edit_doc_path(@doc), class: 'btn btn-warning' do
-      .fa.fa-edit.fa-fw
-      | Редактировать материал
-    = link_to @doc, class: 'btn btn-danger', data: { confirm: 'Вы уверены?' }, method: :delete do
-      .fa.fa-trash.fa-fw
-      | Удалить материал
+    - if current_user.can_manage_doc?(@doc)
+      = link_to new_doc_version_path(@doc), class: 'btn btn-info' do
+        .fa.fa-upload.fa-fw
+        | Обновить материал
+      = link_to edit_doc_path(@doc), class: 'btn btn-warning' do
+        .fa.fa-edit.fa-fw
+        | Редактировать материал
+      = link_to @doc, class: 'btn btn-danger', data: { confirm: 'Вы уверены?' }, method: :delete do
+        .fa.fa-trash.fa-fw
+        | Удалить материал
 p
   strong Версии:
   table.table.table-hover

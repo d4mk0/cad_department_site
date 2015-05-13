@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
 
   permit_params do
-    permitted = [:email, :first_name, :last_name, :patronymic, :admin]
+    permitted = [:email, :first_name, :last_name, :patronymic, :admin, :teacher]
   end
 
   index do

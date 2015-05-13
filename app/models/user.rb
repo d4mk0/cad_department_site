@@ -12,4 +12,12 @@ class User < ActiveRecord::Base
     "#{last_name.capitalize} #{first_name[0].upcase}. #{patronymic[0].upcase}"
   end
 
+  def can_upload_doc?
+    teacher? || admin?
+  end
+
+  def can_manage_doc?(doc)
+    doc.user == self || admin?
+  end
+
 end
