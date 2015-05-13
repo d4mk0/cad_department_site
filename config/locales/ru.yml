@@ -28,3 +28,10 @@ ru:
       next: "Следующая &rsaquo;"
       previous: "&lsaquo; Предыдущая"
       truncate: "&hellip;"
+  enums:
+    ad_categories:
+      for_all: Для всех
+      for_students: Для студентов
+      for_abiturients: Для абитуриентов
+      for_teachers: Для преподавателей
+      from_employers: От работодателей

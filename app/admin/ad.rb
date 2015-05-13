@@ -1,6 +1,5 @@
 ActiveAdmin.register Ad do
-
-  permit_params :title, :text, :published
+  permit_params :title, :text, :published, :category
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -18,6 +17,7 @@ ActiveAdmin.register Ad do
     f.inputs do
       f.input :title
       f.input :published
+      f.input :category, as: :select, collection: Ad.categories_options, include_blank: false
       f.input :text, as: :ckeditor
     end
     f.actions

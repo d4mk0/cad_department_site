@@ -6,7 +6,10 @@ h1 Список объявлений
   - @ads.each do |ad|
     .col-md-6.notice-item
       .bs-callout.bs-callout-info
-        h4 = ad.title
+        span.label.label-warning style="float:right;"
+          = t("enums.ad_categories.#{ad.category}")
+        h4
+          = ad.title
         p = ad.text.html_safe
         .text-center.share-buttons
           script charset="utf-8" src="//yastatic.net/share/share.js" type="text/javascript" 
