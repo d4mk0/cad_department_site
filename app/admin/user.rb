@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
 
   permit_params do
-    permitted = [:email, :first_name, :last_name, :patronymic, :admin, :teacher]
+    permitted = [:email, :first_name, :last_name, :patronymic, :admin, :teacher, :ftp_path]
   end
 
   index do
@@ -11,6 +11,7 @@ ActiveAdmin.register User do
     column :first_name
     column :patronymic
     column :admin
+    column :teacher
     column :current_sign_in_at
     column :last_sign_in_at
     column :sign_in_count
@@ -19,6 +20,7 @@ ActiveAdmin.register User do
 
   filter :email
   filter :admin
+  filter :teacher
   filter :last_name
   filter :first_name
   filter :patronymic
@@ -30,6 +32,8 @@ ActiveAdmin.register User do
       f.input :first_name
       f.input :patronymic
       f.input :admin
+      f.input :teacher
+      f.input :ftp_path
     end
     f.actions
   end
