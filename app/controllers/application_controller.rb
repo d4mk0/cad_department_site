@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :find_side_ads
 
   def authenticate_admin_user!
     raise SecurityError unless current_user.try(:admin?)
@@ -19,6 +20,10 @@ class ApplicationController < ActionController::Base
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')
+  end
+
+  def find_side_ads
+    @side_ads = Ad.for_front.limit(2)
   end
 
   protected

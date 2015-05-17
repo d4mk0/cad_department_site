@@ -96,3 +96,10 @@ html lang="ru"
               span.input-group-btn
                 button.btn.btn-default type='submit'
                   i.fa.fa-search
+          br
+          .panel.panel-info
+            .panel-heading
+              h4.text-center = link_to "Объявления", ads_path
+            .panel-body
+              - @side_ads.each do |ad|
+                = render 'ads/card', ad: ad
