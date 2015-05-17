@@ -7,7 +7,7 @@ p
     = link_to @doc.download_link, class: 'btn btn-primary' do
       .fa.fa-download.fa-fw
       | Скачать
-    - if current_user.can_manage_doc?(@doc)
+    - if current_user.try(:can_manage_doc?, @doc)
       = link_to new_doc_version_path(@doc), class: 'btn btn-info' do
         .fa.fa-upload.fa-fw
         | Обновить материал

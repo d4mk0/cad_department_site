@@ -16,7 +16,7 @@ table.table.table-hover
           .btn-group role="group"
             = link_to doc.download_link, class: 'btn btn-primary', title: 'Скачать' do
               .fa.fa-download.fa-fw
-            - if current_user.can_manage_doc?(doc)
+            - if current_user.try(:can_manage_doc?, doc)
               = link_to edit_doc_path(doc), class: 'btn btn-warning', title: 'Редактировать' do
                 .fa.fa-edit.fa-fw
               = link_to doc, class: 'btn btn-danger', title: 'Удалить', data: { confirm: 'Вы уверены?' }, method: :delete do

@@ -1,13 +1,13 @@
 h1 Список материалов
 
 
-- if current_user.can_upload_doc?
+- if current_user.try(:can_upload_doc?)
   br
   = link_to 'Новый материал', new_doc_path, class: 'btn btn-success'
 
 br
 = render 'collection', docs: @docs
 
-- if current_user.can_upload_doc?
+- if current_user.try(:can_upload_doc?)
   br
   = link_to 'Новый материал', new_doc_path, class: 'btn btn-success'
