@@ -87,5 +87,12 @@ html lang="ru"
               span aria-hidden="true"
                 |&times;
             = value
-        .col-md-12
+        .col-md-9
           = yield
+        aside.col-md-3
+          = form_tag '/search', method: :get do
+            .input-group
+              = text_field_tag :q, params[:q], placeholder: 'Поиск', class: 'form-control'
+              span.input-group-btn
+                button.btn.btn-default type='submit'
+                  i.fa.fa-search

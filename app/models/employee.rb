@@ -7,4 +7,10 @@ class Employee < ActiveRecord::Base
   scope :published, -> { where(published: true) }
   scope :by_position, -> { reorder('position') }
   scope :for_front, -> { published.by_position }
+
+  def self.search(word)
+    fields = [:full_name, :post, :academic_degree, :academic_title, :description, :contact_details]
+    fields.map! { |f| "#{f} like :value"}
+    published.where(fields.join(' or '), value: "%#{word}%")
+  end
 end

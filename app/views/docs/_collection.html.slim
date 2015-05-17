@@ -1,0 +1,23 @@
+table.table.table-hover
+  thead
+    tr
+      th Название
+      th Время обновления
+      th Автор
+      th
+
+  tbody
+    - docs.each do |doc|
+      tr
+        td = link_to doc.name, doc
+        td = doc.version_updated_at
+        td = doc.user.short_name
+        td
+          .btn-group role="group"
+            = link_to doc.download_link, class: 'btn btn-primary', title: 'Скачать' do
+              .fa.fa-download.fa-fw
+            - if current_user.can_manage_doc?(doc)
+              = link_to edit_doc_path(doc), class: 'btn btn-warning', title: 'Редактировать' do
+                .fa.fa-edit.fa-fw
+              = link_to doc, class: 'btn btn-danger', title: 'Удалить', data: { confirm: 'Вы уверены?' }, method: :delete do
+                .fa.fa-trash.fa-fw

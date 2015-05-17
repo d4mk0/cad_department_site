@@ -1,0 +1,53 @@
+h2
+  |Поиск по запросу: &nbsp;
+  strong = params[:q]
+
+
+- if @employees.empty? && @news.empty? && @ads.empty? && @docs.empty? && @pages.empty?
+  .text-center По вашему запросу ничего не найдено
+- else
+  #accordion.panel-group aria-multiselectable="true" role="tablist"
+    - if @employees.present?
+      .panel.panel-default
+        #headingEmployees.panel-heading role="tab"
+          h4.panel-title
+            a aria-controls="collapseEmployees" aria-expanded="true" data-parent="#accordion" data-toggle="collapse" href="#collapseEmployees"
+              | Сотрудники
+        #collapseEmployees.panel-collapse.collapse.in aria-labelledby="headingEmployees" role="tabpanel"
+          .panel-body = render 'employees/collection', employees: @employees
+
+    - if @news.present?
+      .panel.panel-default
+        #headingNews.panel-heading role="tab"
+          h4.panel-title
+            a aria-controls="collapseNews" aria-expanded="true" data-parent="#accordion" data-toggle="collapse" href="#collapseNews"
+              | Новости
+        #collapseNews.panel-collapse.collapse.in aria-labelledby="headingNews" role="tabpanel"
+          .panel-body = render 'news/collection', news: @news
+
+    - if @ads.present?
+      .panel.panel-default
+        #headingAds.panel-heading role="tab"
+          h4.panel-title
+            a aria-controls="collapseAds" aria-expanded="true" data-parent="#accordion" data-toggle="collapse" href="#collapseAds"
+              | Объявления
+        #collapseAds.panel-collapse.collapse.in aria-labelledby="headingAds" role="tabpanel"
+          .panel-body = render 'ads/collection', ads: @ads
+
+    - if @docs.present?
+      .panel.panel-default
+        #headingDocs.panel-heading role="tab"
+          h4.panel-title
+            a aria-controls="collapseDocs" aria-expanded="true" data-parent="#accordion" data-toggle="collapse" href="#collapseDocs"
+              | Материалы
+        #collapseDocs.panel-collapse.collapse.in aria-labelledby="headingDocs" role="tabpanel"
+          .panel-body = render 'docs/collection', docs: @docs
+
+    - if @pages.present?
+      .panel.panel-default
+        #headingPages.panel-heading role="tab"
+          h4.panel-title
+            a aria-controls="collapsePages" aria-expanded="true" data-parent="#accordion" data-toggle="collapse" href="#collapsePages"
+              | Страницы
+        #collapsePages.panel-collapse.collapse.in aria-labelledby="headingPages" role="tabpanel"
+          .panel-body = render 'pages/collection', pages: @pages

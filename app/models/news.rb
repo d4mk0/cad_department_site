@@ -3,4 +3,10 @@ class News < ActiveRecord::Base
 
   scope :published, -> { where(published: true) }
   scope :for_front, -> { published.order('id DESC') }
+
+  def self.search(word)
+    fields = [:title, :short_description, :text]
+    fields.map! { |f| "#{f} like :value"}
+    published.where(fields.join(' or '), value: "%#{word}%")
+  end
 end

@@ -1,0 +1,9 @@
+- news.each do |news|
+  article.clearfix
+    .post-date
+      = news.created_at
+    h2
+      = link_to news.title, news
+    p
+      = news.short_description.html_safe
+      = link_to "Читать полностью", news

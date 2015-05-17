@@ -2,19 +2,6 @@ h1 Список объявлений
 
 .text-center = paginate @ads, theme: 'twitter-bootstrap-3'
 
-#notice-collection
-  - @ads.each do |ad|
-    .col-md-6.notice-item
-      .bs-callout.bs-callout-info
-        span.label.label-warning style="float:right;"
-          = t("enums.ad_categories.#{ad.category}")
-        h4
-          = ad.title
-        p = ad.text.html_safe
-        .text-center.share-buttons
-          script charset="utf-8" src="//yastatic.net/share/share.js" type="text/javascript" 
-          .yashare-auto-init data-yasharel10n="ru" data-yasharequickservices="vkontakte,facebook,twitter,moimir" data-yasharetheme="counter" data-yasharetype="small"  data-yasharetitle=ad.title
-
-
+= render 'collection', ads: @ads
 
 .text-center = paginate @ads, theme: 'twitter-bootstrap-3'

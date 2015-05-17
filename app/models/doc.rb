@@ -18,4 +18,10 @@ class Doc < ActiveRecord::Base
   def actual_version
     versions.reorder('created_at DESC').first
   end
+
+  def self.search(word)
+    fields = [:name]
+    fields.map! { |f| "#{f} like :value"}
+    where(fields.join(' or '), value: "%#{word}%")
+  end
 end

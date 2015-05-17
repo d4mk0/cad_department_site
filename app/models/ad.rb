@@ -13,4 +13,9 @@ class Ad < ActiveRecord::Base
     Ad::CATEGORIES.map { |c| [I18n.t("enums.ad_categories.#{c}"), c] }
   end
 
+  def self.search(word)
+    fields = [:title, :text]
+    fields.map! { |f| "#{f} like :value"}
+    published.where(fields.join(' or '), value: "%#{word}%")
+  end
 end

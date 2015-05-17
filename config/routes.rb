@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  match '/search', to: 'home#search', via: :all
+
   # Next route should be placed at the bottom of the list of routes
   match '*path', to: 'home#page', via: :get
 end
