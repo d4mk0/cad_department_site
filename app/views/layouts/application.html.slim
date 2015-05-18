@@ -64,7 +64,7 @@ html lang="ru"
                     a.firstLevel.hasSubMenu href="#" О кафедре
                     ul.subMenu style="display: none;"
                       li
-                        a href="/about" О кафедре
+                        a href="/about" История кафедры
                       li = link_to "Сотрудники", employees_path
                       li
                         a href="/scientific_activity" Научная деятельность
@@ -84,21 +84,21 @@ html lang="ru"
                         a href="/postgraduate_school"  Аспирантура
                   li.sep
                   li
-                    a href="/news"  Новости
+                    a href="/news" class="#{current_page?('/news') ? 'active' : ''}" Новости
                   li.sep
-                  li = link_to "Расписание", timetables_path
+                  li = link_to "Расписание", timetables_path, class: "#{current_page?(timetables_path) ? 'active' : ''}"
                   li.sep
-                  li= link_to "Материалы", docs_path
+                  li= link_to "Материалы", docs_path, class: "#{current_page?(docs_path) ? 'active' : ''}"
                   li.sep
-                  li= link_to "Объявления", ads_path
+                  li= link_to "Объявления", ads_path, class: "#{current_page?(ads_path) ? 'active' : ''}"
                   li.sep
-                  li= link_to "Трудоустройство", employment_ads_path
+                  li= link_to "Трудоустройство", employment_ads_path, class: "#{current_page?(employment_ads_path) ? 'active' : ''}"
                   li.sep
                   - if current_user.present?
                     li= link_to "Выход", destroy_user_session_path, method: :delete
                     li.sep
                   - else
-                    li= link_to "Вход / Регистрация", new_user_session_path
+                    li= link_to "Вход / Регистрация", new_user_session_path, class: "#{current_page?(new_user_session_path) ? 'active' : ''}"
                     li.sep
 
         - if content_for?(:title) || content_for?(:description)
