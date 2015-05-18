@@ -30,6 +30,7 @@ gem 'masonry-rails'
 gem 'imagesLoaded_rails'
 gem 'activeadmin-sortable'
 gem 'acts_as_list'
+gem 'filesize'
 
 group :development, :test do
   gem 'byebug'

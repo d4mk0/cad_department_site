@@ -4,6 +4,7 @@ table.table.table-hover
       th Название
       th Дисциплина
       th Время обновления
+      th Размер
       th Автор
       th
 
@@ -14,7 +15,12 @@ table.table.table-hover
         td
           - if doc.discipline.present?
             = link_to doc.discipline.name, doc.discipline
-        td = doc.version_updated_at
+        td
+          - if doc.version_updated_at.present?
+            = Russian::strftime doc.version_updated_at, "%d %b %Y %H:%M"
+        td
+          - if doc.actual_version.try(:path).present?
+            = Filesize.from("#{doc.actual_version.file_size} B").pretty
         td = doc.user.short_name
         td
           .btn-group role="group"

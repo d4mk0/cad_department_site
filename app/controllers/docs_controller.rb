@@ -7,7 +7,7 @@ class DocsController < ApplicationController
   # GET /docs
   # GET /docs.json
   def index
-    @docs = Doc.all
+    @docs = Doc.for_front
   end
 
   def my
@@ -45,6 +45,7 @@ class DocsController < ApplicationController
 
     respond_to do |format|
       if @doc.save
+        @doc.send_to_server
         format.html { redirect_to @doc, notice: 'Материал был успешно загружен' }
         format.json { render :show, status: :created, location: @doc }
       else

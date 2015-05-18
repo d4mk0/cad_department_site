@@ -7,6 +7,15 @@
 - content_for :title do
   |Дисциплины
 
+div role="tabpanel"
+  ul.nav.nav-tabs role="tablist"
+    li role="presentation"
+      a href=docs_path role="tab"
+        |Все материалы
+    li.active role="presentation"
+      a href=disciplines_path role="tab"
+        |Дисциплины
+
 - if current_user.try(:can_upload_doc?)
   = link_to 'Новая дисциплина', new_discipline_path, class: 'btn btn-success'
   br

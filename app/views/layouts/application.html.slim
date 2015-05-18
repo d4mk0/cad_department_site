@@ -85,10 +85,15 @@ html lang="ru"
                       li.last
                         a href="/postgraduate_school"  Аспирантура
                   li.sep
-                  li.sep
                   li = link_to "Расписание", timetables_path, class: "#{current_page?(timetables_path) ? 'active' : ''}"
                   li.sep
-                  li= link_to "Материалы", docs_path, class: "#{current_page?(docs_path) ? 'active' : ''}"
+                  li.dropdown
+                    a.firstLevel.hasSubMenu href="#" Материалы
+                    ul.subMenu style="display: none;"
+                      li
+                        = link_to "По дисциплинам", disciplines_path
+                      li.last
+                        = link_to "Все материалы", docs_path
                   li.sep
                   li= link_to "Объявления", ads_path, class: "#{current_page?(ads_path) ? 'active' : ''}"
                   li.sep

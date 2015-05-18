@@ -34,12 +34,13 @@ class VersionsController < ApplicationController
       file.write(uploaded_io.read)
     end
     @version.update path: file_name
+    @version.send_to_ftp_server
 
-      if @version.save
-        redirect_to @doc, notice: 'Новая версия была добавлена'
-      else
-        render :new
-      end
+    if @version.save
+      redirect_to @doc, notice: 'Новая версия была добавлена'
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /versions/1

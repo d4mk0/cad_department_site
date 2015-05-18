@@ -10,26 +10,22 @@
   |Материалы
 
 div role="tabpanel"
-
   ul.nav.nav-tabs role="tablist"
     li.active role="presentation"
-      a href="#docs" aria-controls="docs" role="tab" data-toggle="tab"
-        |Списком
+      a href="#" role="tab"
+        |Все материалы
     li role="presentation"
-      a href="#disciplines" aria-controls="disciplines" role="tab" data-toggle="tab"
-        |По дисциплинам
+      a href=disciplines_path role="tab"
+        |Дисциплины
 
-  .tab-content
-    #docs.tab-pane.active role="tabpanel"
-      - if current_user.try(:can_upload_doc?)
-        br
-        = link_to 'Новый материал', new_doc_path, class: 'btn btn-success'
+- if current_user.try(:can_upload_doc?)
+  br
+  = link_to 'Новый материал', new_doc_path, class: 'btn btn-success'
 
-      br
-      = render 'collection', docs: @docs
+br
+= render 'collection', docs: @docs
 
-      - if current_user.try(:can_upload_doc?)
-        br
-        = link_to 'Новый материал', new_doc_path, class: 'btn btn-success'
+- if current_user.try(:can_upload_doc?)
+  br
+  = link_to 'Новый материал', new_doc_path, class: 'btn btn-success'
 
-    #disciplines.tab-pane role="disciplines"

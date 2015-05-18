@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name, :patronymic
 
+  scope :for_sync, -> { where.not(ftp_path: nil) }
+
   def short_name
     "#{last_name.capitalize} #{first_name[0].upcase}. #{patronymic[0].upcase}"
   end
