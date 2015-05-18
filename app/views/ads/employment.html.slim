@@ -1,4 +1,11 @@
-h1 Трудоустройство
+- content_for :breadcrumbs do
+  ol.breadcrumb
+    li
+      a href=root_path  Главная
+    li.active Трудоустройство
+
+- content_for :title do
+  |Трудоустройство
 
 .text-center = paginate @ads, theme: 'twitter-bootstrap-3'
 

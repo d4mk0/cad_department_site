@@ -4,7 +4,8 @@
       a href=root_path  Главная
     li.active Объявления
 
-h1 Список объявлений
+- content_for :title do
+  |Объявления
 
 .text-center = paginate @ads, theme: 'twitter-bootstrap-3'
 

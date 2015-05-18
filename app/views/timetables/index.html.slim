@@ -4,6 +4,9 @@
       a href=root_path  Главная
     li.active Расписание
 
+- content_for :title do
+  |Расписание
+
 - @timetables.each do |timetable|
   = link_to timetable do
     .col-md-3.bs-callout.bs-callout-info
