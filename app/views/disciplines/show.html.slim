@@ -1,12 +1,4 @@
-p#notice = notice
-
-p
-  strong Название:
+h1
   = @discipline.name
 p
-  strong Описание:
   = @discipline.description
-
-= link_to 'Edit', edit_discipline_path(@discipline)
-'|
-= link_to 'Back', disciplines_path

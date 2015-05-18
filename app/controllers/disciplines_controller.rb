@@ -7,6 +7,10 @@ class DisciplinesController < ApplicationController
     @disciplines = Discipline.all
   end
 
+  def my
+    @disciplines = current_user.disciplines
+  end
+
   # GET /disciplines/1
   # GET /disciplines/1.json
   def show
@@ -24,11 +28,11 @@ class DisciplinesController < ApplicationController
   # POST /disciplines
   # POST /disciplines.json
   def create
-    @discipline = Discipline.new(discipline_params)
+    @discipline = Discipline.new(discipline_params.merge(user: current_user))
 
     respond_to do |format|
       if @discipline.save
-        format.html { redirect_to @discipline, notice: 'Discipline was successfully created.' }
+        format.html { redirect_to @discipline, notice: 'Дисциплина была успешно создана' }
         format.json { render :show, status: :created, location: @discipline }
       else
         format.html { render :new }

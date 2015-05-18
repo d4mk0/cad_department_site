@@ -1,13 +1,17 @@
 class DocsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :my]
   before_action :set_doc, only: [:show, :edit, :update, :destroy]
-  before_action :check_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_user, only: [:new, :create, :edit, :update, :destroy, :my]
   before_action :check_permissions, only: [:update, :destroy]
 
   # GET /docs
   # GET /docs.json
   def index
     @docs = Doc.all
+  end
+
+  def my
+    @docs = current_user.docs
   end
 
   # GET /docs/1

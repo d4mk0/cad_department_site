@@ -1,9 +1,29 @@
+- last_news = news.last
 - news.each do |news|
-  article.clearfix
-    .post-date
-      = news.created_at
-    h2
-      = link_to news.title, news
-    p
-      = news.short_description.html_safe
-      = link_to "Читать полностью", news
+  article.post.clearfix
+    .row
+      section.col-sm-12
+        h2
+          = link_to news.title, news
+
+        p
+          = news.short_description.html_safe
+          = link_to "Читать полностью", news
+
+        ul.entry-meta
+          li.entry-shows
+            a href="#"
+              i.fa.fa-eye
+              |&nbsp;
+              = news.views
+          li.entry-date
+            a href="#"
+              i.fa.fa-calendar
+              |&nbsp;
+              = Russian::strftime news.created_at, "%d %b, %Y %H:%M"
+          li.entry-author
+            a href="#"
+              i.fa.fa-user
+              |&nbsp; Администратор
+  - unless last_news == news
+    hr

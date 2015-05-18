@@ -4,5 +4,9 @@
       a href=root_path  Главная
     li.active Новости
 
+- content_for :title do
+  |Новости
 
-.col-md-10.col-md-offset-1 = render 'collection', news: @news
+= render 'collection', news: @news
+
+.text-center = paginate @news, theme: 'twitter-bootstrap-3'

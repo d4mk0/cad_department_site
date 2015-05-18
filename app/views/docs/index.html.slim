@@ -5,15 +5,31 @@
     li.active Материалы
 
 
-h1 Список материалов
 
-- if current_user.try(:can_upload_doc?)
-  br
-  = link_to 'Новый материал', new_doc_path, class: 'btn btn-success'
+- content_for :title do
+  |Список материалов
 
-br
-= render 'collection', docs: @docs
+div role="tabpanel"
 
-- if current_user.try(:can_upload_doc?)
-  br
-  = link_to 'Новый материал', new_doc_path, class: 'btn btn-success'
+  ul.nav.nav-tabs role="tablist"
+    li.active role="presentation"
+      a href="#docs" aria-controls="docs" role="tab" data-toggle="tab"
+        |Списком
+    li role="presentation"
+      a href="#disciplines" aria-controls="disciplines" role="tab" data-toggle="tab"
+        |По дисциплинам
+
+  .tab-content
+    #docs.tab-pane.active role="tabpanel"
+      - if current_user.try(:can_upload_doc?)
+        br
+        = link_to 'Новый материал', new_doc_path, class: 'btn btn-success'
+
+      br
+      = render 'collection', docs: @docs
+
+      - if current_user.try(:can_upload_doc?)
+        br
+        = link_to 'Новый материал', new_doc_path, class: 'btn btn-success'
+
+    #disciplines.tab-pane role="disciplines"

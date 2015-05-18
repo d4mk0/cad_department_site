@@ -1,5 +1,6 @@
 class Doc < ActiveRecord::Base
   belongs_to :user
+  belongs_to :discipline
 
   has_many :versions, dependent: :destroy
 

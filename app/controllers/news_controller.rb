@@ -3,7 +3,7 @@ class NewsController < InheritedResources::Base
   before_action :increase_views, only: [:show]
 
   def index
-    @news = News.for_front
+    @news = News.for_front.page(params[:page]).per(params[:per_page])
   end
 
   private

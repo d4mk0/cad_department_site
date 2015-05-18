@@ -1,0 +1,19 @@
+- content_for :breadcrumbs do
+  ol.breadcrumb
+    li
+      a href=root_path  Главная
+    li.active Мои материалы
+
+
+h1 Список материалов
+
+- if current_user.try(:can_upload_doc?)
+  br
+  = link_to 'Новый материал', new_doc_path, class: 'btn btn-success'
+
+br
+= render 'collection', docs: @docs
+
+- if current_user.try(:can_upload_doc?)
+  br
+  = link_to 'Новый материал', new_doc_path, class: 'btn btn-success'

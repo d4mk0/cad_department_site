@@ -1,4 +1,6 @@
 class News < ActiveRecord::Base
+  paginates_per 10
+
   validates_presence_of :title, :text, :short_description
 
   scope :published, -> { where(published: true) }
