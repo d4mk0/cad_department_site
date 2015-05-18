@@ -8,6 +8,8 @@ class Ad < ActiveRecord::Base
 
   scope :published, -> { where(published: true) }
   scope :for_front, -> { published.order('id DESC') }
+  scope :without_employers, -> { where.not(category: 'from_employers') }
+  scope :from_employers, -> { where(category: 'from_employers') }
 
   def self.categories_options
     Ad::CATEGORIES.map { |c| [I18n.t("enums.ad_categories.#{c}"), c] }

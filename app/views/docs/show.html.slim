@@ -1,3 +1,12 @@
+- content_for :breadcrumbs do
+  ol.breadcrumb
+    li
+      a href=root_path  Главная
+    li
+      a href=docs_path  Материалы
+    li.active = @doc.name
+
+
 p
   strong Название:
   |&nbsp;

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :timetables, only: [:index, :show]
   resources :employees, only: [:index, :show]
   resources :news, only: [:index, :show]
-  resources :ads, only: [:index, :show]
+  resources :ads, only: [:create, :index] do
+    get 'employment', on: :collection
+  end
 
   mount Ckeditor::Engine => '/ckeditor'
   ActiveAdmin.routes(self)

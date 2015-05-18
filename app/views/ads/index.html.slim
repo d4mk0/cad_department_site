@@ -1,3 +1,9 @@
+- content_for :breadcrumbs do
+  ol.breadcrumb
+    li
+      a href=root_path  Главная
+    li.active Объявления
+
 h1 Список объявлений
 
 .text-center = paginate @ads, theme: 'twitter-bootstrap-3'

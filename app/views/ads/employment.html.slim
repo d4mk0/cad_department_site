@@ -1,0 +1,24 @@
+h1 Трудоустройство
+
+.text-center = paginate @ads, theme: 'twitter-bootstrap-3'
+
+- @ads.each do |ad|
+  .notice-item = render 'card', ad: ad
+
+.text-center = paginate @ads, theme: 'twitter-bootstrap-3'
+
+h2.text-center
+  a data-toggle="collapse" href="#addAd" aria-expanded="false" aria-controls="addAd"
+    |Я работодатель. Хочу добавить сюда объявление!
+
+#addAd.collapse
+  .well
+    = simple_form_for(Ad.new) do |f|
+
+      .form-inputs
+        = f.input :title
+        = f.input :text
+        p.help-block Обязательно укажите контактные данные по которым с Вами можно связаться.
+
+      .form-actions
+        = f.button :submit, 'Отправить'

@@ -21,6 +21,12 @@ ru:
       discipline:
         name: Название
         description: Описание
+      ad:
+        title: Заголовок
+        text: Текст
+        published: Опубликовано
+        created_at: Время создания
+        updated_at: Время изменения
   views:
     pagination:
       first: "&laquo; Первая"

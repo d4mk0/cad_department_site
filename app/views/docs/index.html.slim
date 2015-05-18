@@ -1,5 +1,11 @@
-h1 Список материалов
+- content_for :breadcrumbs do
+  ol.breadcrumb
+    li
+      a href=root_path  Главная
+    li.active Материалы
 
+
+h1 Список материалов
 
 - if current_user.try(:can_upload_doc?)
   br

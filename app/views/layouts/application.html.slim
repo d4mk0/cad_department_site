@@ -91,6 +91,7 @@ html lang="ru"
                     li = link_to "Расписание", timetables_path
                     li= link_to "Материалы", docs_path
                     li= link_to "Объявления", ads_path
+                    li= link_to "Трудоустройство", employment_ads_path
                     - if current_user.present?
                       li= link_to "Редактировать профиль", edit_user_registration_path
                       li= link_to "Выход", destroy_user_session_path, method: :delete
