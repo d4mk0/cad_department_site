@@ -1,7 +1,7 @@
 ActiveAdmin.register Employee do
 
   permit_params do
-    permitted = [:full_name, :photo, :post, :academic_degree, :academic_title, :description, :published, :position]
+    permitted = [:full_name, :photo, :post, :academic_degree, :academic_title, :description, :published, :position, :contact_details]
   end
 
   config.sort_order = 'position_asc'

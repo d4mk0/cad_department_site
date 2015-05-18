@@ -7,27 +7,33 @@
     li.active = @employee.full_name
 
 
-p
-  strong Full name:
+- content_for :title do
   = @employee.full_name
-p
-  strong Photo:
-  = @employee.photo
-p
-  strong Post:
-  = @employee.post
-p
-  strong Academic degree:
-  = @employee.academic_degree
-p
-  strong Academic title:
-  = @employee.academic_title
-p
-  strong Description:
-  = @employee.description
-p
-  strong Published:
-  = @employee.published
-p
-  strong Position:
-  = @employee.position
+
+.row
+  .col-sm-offset-3.col-sm-6 = image_tag @employee.photo.url, class: 'img-responsive'
+br
+h1.text-center = @employee.full_name
+br
+.row
+  - if @employee.post.present?
+    p
+      b = Employee.human_attribute_name(:post)
+      |: &nbsp;
+      = @employee.post
+  - if @employee.academic_degree.present?
+    p
+      b = Employee.human_attribute_name(:academic_degree)
+      |: &nbsp;
+      = @employee.academic_degree
+  - if @employee.academic_title.present?
+    p
+      b = Employee.human_attribute_name(:academic_title)
+      |: &nbsp;
+      = @employee.academic_title
+  - if @employee.contact_details.present?
+    p
+      b = Employee.human_attribute_name(:contact_details)
+      |: &nbsp;
+      = @employee.contact_details
+  p = @employee.description.html_safe

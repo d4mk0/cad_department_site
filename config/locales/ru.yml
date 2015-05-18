@@ -1,10 +1,36 @@
 ru:
   activerecord:
     models:
-      user: Пользователь
-      doc: Материал
-      version: Версия
-      discipline: Дисциплина
+      user:
+        one: Пользователь
+        few: Пользователя
+        many: Пользователей
+        other: Пользователи
+      doc:
+        one: Материал
+        few: Материала
+        many: Материалов
+        other: Материалы
+      version:
+        one: Версия
+        few: Версии
+        many: Версий
+        other: Версии
+      discipline:
+        one: Дисциплина
+        few: Дисциплины
+        many: Дисциплин
+        other: Дисциплины
+      ad:
+        one: Объявление
+        few: Объявления
+        many: Объявлений
+        other: Объявления
+      employee:
+        one: Сотрудник
+        few: Сотрудника
+        many: Сотрудников
+        other: Сотрудники
     attributes:
       user:
         email: E-mail
@@ -25,6 +51,18 @@ ru:
         title: Заголовок
         text: Текст
         published: Опубликовано
+        created_at: Время создания
+        updated_at: Время изменения
+      employee:
+        full_name: ФИО
+        photo: Фотография
+        post: Должность
+        academic_degree: Учёная степень
+        academic_title: Учёное звание
+        description: Описание
+        published: Опубликован
+        position: Позиция
+        contact_details: Контактные данные
         created_at: Время создания
         updated_at: Время изменения
   views:

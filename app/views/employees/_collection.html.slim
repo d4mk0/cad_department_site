@@ -1,17 +1,15 @@
-table.table.table-hover
-  thead
-    tr
-      th = Employee.human_attribute_name(:full_name)
-      th = Employee.human_attribute_name(:photo)
-      th = Employee.human_attribute_name(:post)
-      th = Employee.human_attribute_name(:contact_details)
-
-  tbody
-    - employees.each do |employee|
-      tr
-        td = link_to employee.full_name, employee
-        td
-          = link_to employee do
-            = image_tag employee.photo.thumb, class: 'img-thumbnail'
-        td = employee.post
-        td = employee.contact_details
+#employees-list
+  - employees.each do |employee|
+    .col-sm-4.item
+      = link_to employee do
+        article
+          div
+            = image_tag employee.photo.medium, class: 'img-responsive'
+          .boxContent.color2
+            h3 = employee.full_name
+            p = employee.post
+          - if employee.contact_details.present?
+            .boxContent
+              i.fa.fa-at
+              |&nbsp;
+              = employee.contact_details

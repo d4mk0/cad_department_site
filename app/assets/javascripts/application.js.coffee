@@ -10,3 +10,7 @@ $ ->
     $('#notice-collection').masonry
       itemSelector: '.notice-item'
       columnWidth: 0
+  $('#employees-list').imagesLoaded ->
+    $('#employees-list').masonry
+      itemSelector: '.item'
+      columnWidth: 0
