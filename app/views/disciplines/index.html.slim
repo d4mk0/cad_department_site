@@ -1,19 +1,17 @@
-h1 Список дисциплин
+- content_for :breadcrumbs do
+  ol.breadcrumb
+    li
+      a href=root_path  Главная
+    li.active Дисциплины
 
-table.table.table-hover
-  thead
-    tr
-      th Название
-      th Описание
-      th
-      th
-      th
+- content_for :title do
+  |Дисциплины
 
-  tbody
-    - @disciplines.each do |discipline|
-      tr
-        td = discipline.name
-        td = discipline.description
-        td = link_to 'Show', discipline
-        td = link_to 'Edit', edit_discipline_path(discipline)
-        td = link_to 'Destroy', discipline, data: {:confirm => 'Are you sure?'}, :method => :delete
+- if current_user.try(:can_upload_doc?)
+  = link_to 'Новая дисциплина', new_discipline_path, class: 'btn btn-success'
+  br
+= render "disciplines/collection", disciplines: @disciplines
+
+- if current_user.try(:can_upload_doc?)
+  br
+  = link_to 'Новая дисциплина', new_discipline_path, class: 'btn btn-success'

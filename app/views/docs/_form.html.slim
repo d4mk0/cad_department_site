@@ -3,9 +3,11 @@
 
   .form-inputs
     = f.input :name
-  .form-inputs
-    = f.simple_fields_for :versions do |v|
-      = v.input :file, as: :file
+    = f.association :discipline, collection: (current_user.admin? ? Discipline.all : current_user.disciplines)
+  - if @doc.new_record?
+    .form-inputs
+      = f.simple_fields_for :versions do |v|
+        = v.input :file, as: :file
 
   .form-actions
-    = f.button :submit, 'Создать материал'
+    = f.button :submit, 'Сохранить материал'

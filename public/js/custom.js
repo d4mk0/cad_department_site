@@ -122,22 +122,22 @@ $(document).ready(function() {
 	| Menu Fixed (multipage)
 	|--------------------------------------------------------------------------
 	*/
-	if(!$('#onePage').length){
-		$(window).scroll(function () {
-			if( $(window).width() > 1024 ){
+	// if(!$('#onePage').length){
+	// 	$(window).scroll(function () {
+	// 		if( $(window).width() > 1024 ){
 
-				if($(window).scrollTop() > 0){
-					$('#mainHeader').addClass('fixedHeader');
-
-
-				}else{
-					$('#mainHeader').removeClass('fixedHeader');
+	// 			if($(window).scrollTop() > 0){
+	// 				$('#mainHeader').addClass('fixedHeader');
 
 
-				}
-			}
-		});	
-	}
+	// 			}else{
+	// 				$('#mainHeader').removeClass('fixedHeader');
+
+
+	// 			}
+	// 		}
+	// 	});	
+	// }
 
 
 

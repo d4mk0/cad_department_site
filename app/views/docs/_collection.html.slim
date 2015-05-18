@@ -2,6 +2,7 @@ table.table.table-hover
   thead
     tr
       th Название
+      th Дисциплина
       th Время обновления
       th Автор
       th
@@ -10,6 +11,9 @@ table.table.table-hover
     - docs.each do |doc|
       tr
         td = link_to doc.name, doc
+        td
+          - if doc.discipline.present?
+            = link_to doc.discipline.name, doc.discipline
         td = doc.version_updated_at
         td = doc.user.short_name
         td

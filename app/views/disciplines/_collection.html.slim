@@ -1,0 +1,25 @@
+table.table.table-hover
+  colgroup
+    col
+    col
+    col width="20%"
+  thead
+    tr
+      th Название
+      th Описание
+      th
+
+  tbody
+    - @disciplines.each do |discipline|
+      tr
+        td = discipline.name
+        td = discipline.description
+        td
+          .btn-group role="group"
+            = link_to discipline, class: 'btn btn-primary', title: 'Просмотр' do
+              .fa.fa-eye.fa-fw
+            - if current_user.try(:can_manage_discipline?, discipline)
+              = link_to edit_discipline_path(discipline), class: 'btn btn-warning', title: 'Редактировать' do
+                .fa.fa-edit.fa-fw
+              = link_to discipline, class: 'btn btn-danger', title: 'Удалить', data: { confirm: 'Вы уверены?' }, method: :delete do
+                .fa.fa-trash.fa-fw

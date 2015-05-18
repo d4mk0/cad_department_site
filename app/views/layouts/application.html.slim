@@ -57,7 +57,7 @@ html lang="ru"
                   span.icon-bar
                   span.icon-bar
                 a.navbar-brand href=root_path
-                  img alt=("Сайт кафедры САПР") src="/images/sapr_logo.jpg" style="height: 44px;"
+                  img alt=("Сайт кафедры САПР") src="/images/sapr_logo.jpg"
               #mainMenu.collapse.navbar-collapse
                 ul.nav.navbar-nav.pull-right
                   li.primary
@@ -75,6 +75,8 @@ html lang="ru"
                     a.firstLevel.hasSubMenu href="#" Информация
                     ul.subMenu style="display: none;"
                       li
+                        a href="/news" class="#{current_page?('/news') ? 'active' : ''}" Новости
+                      li
                         a href="/for_applicants" Абитуриентам
                       li
                         a href="/for_students"  Студентам
@@ -83,8 +85,6 @@ html lang="ru"
                       li.last
                         a href="/postgraduate_school"  Аспирантура
                   li.sep
-                  li
-                    a href="/news" class="#{current_page?('/news') ? 'active' : ''}" Новости
                   li.sep
                   li = link_to "Расписание", timetables_path, class: "#{current_page?(timetables_path) ? 'active' : ''}"
                   li.sep

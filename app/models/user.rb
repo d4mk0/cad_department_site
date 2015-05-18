@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
     doc.user == self || admin?
   end
 
+  def can_manage_discipline?(discipline)
+    discipline.user == self || admin?
+  end
+
 end

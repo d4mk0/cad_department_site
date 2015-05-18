@@ -5,7 +5,8 @@
     li.active Мои материалы
 
 
-h1 Список материалов
+- content_for :title do
+  |Мои материалы
 
 - if current_user.try(:can_upload_doc?)
   br

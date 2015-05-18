@@ -8,9 +8,14 @@
 
 
 p
-  strong Название:
+  b Название:
   |&nbsp;
   = @doc.name
+- if @doc.discipline.present?
+  p
+    b Дисциплина:
+    |&nbsp;
+    = @doc.discipline.name
 p
   .btn-group role="group"
     = link_to @doc.download_link, class: 'btn btn-primary' do
@@ -27,7 +32,7 @@ p
         .fa.fa-trash.fa-fw
         | Удалить материал
 p
-  strong Версии:
+  b Версии:
   table.table.table-hover
     tr
       th Название

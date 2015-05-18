@@ -42,6 +42,8 @@ ru:
         patronymic: Отчество
       doc:
         name: Название
+        discipline: Дисциплина
+        discipline_id: Дисциплина
       version:
         file: Файл
       discipline:

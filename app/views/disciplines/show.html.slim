@@ -1,4 +1,26 @@
+- content_for :title do
+  = @discipline.name
+- content_for :breadcrumbs do
+  ol.breadcrumb
+    li
+      a href=root_path  Главная
+    li
+      a href=disciplines_path  Дисциплины
+    li.active = @discipline.name
+
 h1
   = @discipline.name
 p
   = @discipline.description
+
+.panel.panel-default
+  #headingDocs.panel-heading role="tab"
+    h4.panel-title
+      a aria-controls="collapseDocs" aria-expanded="true" data-parent="#accordion" data-toggle="collapse" href="#collapseDocs"
+        | Материалы
+  #collapseDocs.panel-collapse.collapse.in aria-labelledby="headingDocs" role="tabpanel"
+    .panel-body
+      - if @discipline.docs.present?
+        = render 'docs/collection', docs: @discipline.docs
+      - else
+        p Материалов по данной дисциплине нет

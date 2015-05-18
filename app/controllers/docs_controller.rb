@@ -86,7 +86,7 @@ class DocsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def doc_params
-    params.require(:doc).permit(:name, versions_attributes: [:path])
+    params.require(:doc).permit(:name, :discipline_id, versions_attributes: [:path])
   end
 
   def check_user
