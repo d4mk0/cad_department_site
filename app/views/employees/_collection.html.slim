@@ -1,7 +1,8 @@
 #employees-list
   - employees.each do |employee|
     .col-sm-4.item
-      = link_to employee do
+      br
+      = link_to employee, style: 'text-decoration: none !important;' do
         article
           div
             = image_tag employee.photo.medium, class: 'img-responsive'
@@ -13,3 +14,4 @@
               i.fa.fa-at
               |&nbsp;
               = employee.contact_details
+      br
