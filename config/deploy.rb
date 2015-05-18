@@ -7,7 +7,7 @@ set :shared_path, "#{deploy_to}/shared"
 set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 set :rails_env, "production"
 
-set :linked_files, %w{ config/database.yml config/secrets.yml config/unicorn.rb ftp_config/crendetials.yml }
+set :linked_files, %w{ config/database.yml config/secrets.yml config/unicorn.rb config/ftp_crendetials.yml }
 set :linked_dirs, %w{ log tmp/pids tmp/cache tmp/sockets vendor/bundle public/versions public/uploads }
 
 namespace :deploy do
