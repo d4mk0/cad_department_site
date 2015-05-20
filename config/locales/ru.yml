@@ -40,6 +40,7 @@ ru:
         first_name: Имя
         last_name: Фамилия
         patronymic: Отчество
+        remember_me: Запомнить меня
       doc:
         name: Название
         discipline: Дисциплина

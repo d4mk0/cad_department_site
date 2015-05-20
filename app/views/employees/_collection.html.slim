@@ -1,17 +1,18 @@
-#employees-list
-  - employees.each do |employee|
-    .col-sm-4.item
-      br
-      = link_to employee, style: 'text-decoration: none !important;' do
-        article
-          div
-            = image_tag employee.photo.medium, class: 'img-responsive'
-          .boxContent.color2
-            h3 = employee.full_name
-            p = employee.post
-          - if employee.contact_details.present?
-            .boxContent
-              i.fa.fa-at
-              |&nbsp;
-              = employee.contact_details
-      br
+- employees.each_slice(3) do |employees|
+  .row
+    - employees.each do |employee|
+      .col-sm-4.item
+        br
+        = link_to employee, style: 'text-decoration: none !important;' do
+          article
+            div
+              = image_tag employee.photo.medium, class: 'img-responsive'
+            .boxContent.color2
+              h3 = employee.full_name
+              p = employee.post
+            - if employee.contact_details.present?
+              .boxContent
+                i.fa.fa-at
+                |&nbsp;
+                = employee.contact_details
+        br
