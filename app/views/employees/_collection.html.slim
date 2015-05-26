@@ -5,8 +5,8 @@
         br
         = link_to employee, style: 'text-decoration: none !important;' do
           article
-            div
-              = image_tag employee.photo.medium, class: 'img-responsive'
+            .text-center
+              = image_tag employee.photo.medium, class: 'img-responsive', style: "margin: 0 auto;"
             .boxContent.color2
               h3 = employee.full_name
               p = employee.post
