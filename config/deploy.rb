@@ -6,6 +6,7 @@ set :repo_url, 'git@github.com:d4mk0/cad_department_site.git'
 set :shared_path, "#{deploy_to}/shared"
 set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 set :rails_env, "production"
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 set :linked_files, %w{ config/database.yml config/secrets.yml config/unicorn.rb config/ftp_crendetials.yml }
 set :linked_dirs, %w{ log tmp/pids tmp/cache tmp/sockets vendor/bundle public/versions public/uploads }

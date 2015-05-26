@@ -31,6 +31,7 @@ gem 'imagesLoaded_rails'
 gem 'activeadmin-sortable'
 gem 'acts_as_list'
 gem 'filesize'
+gem 'whenever'
 
 group :development, :test do
   gem 'byebug'
