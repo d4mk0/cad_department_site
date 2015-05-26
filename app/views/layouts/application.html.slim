@@ -164,7 +164,7 @@ html lang="ru"
                 .panel-body
                   - @side_ads.each do |ad|
                     = render 'ads/card', ad: ad
-
+      = Page.find_by(permalink: :main_footer).try(:text).to_s.html_safe
     script src="/js-plugin/respond/respond.min.js" type="text/javascript" 
     script src="/js-plugin/jquery-ui/jquery-ui-1.8.23.custom.min.js" type="text/javascript" 
     /! third party plugins

@@ -186,7 +186,7 @@ pre code{white-space: pre-line;}
 ================================================== */
 /*** lists ***/
 /* icons */
-.iconList li:before{
+/*.iconList li:before{
 	content:'\e801';
 	font-family: 'custom-icons';
 	font-size: 10px;
@@ -196,7 +196,7 @@ pre code{white-space: pre-line;}
 	display:inline-block;
 	margin-right:10px;
 	line-height:1em;
-}
+}*/
 .iconList li {padding:5px;}
 
 /* borde */
