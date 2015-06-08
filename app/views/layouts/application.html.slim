@@ -77,13 +77,13 @@ html lang="ru"
                       li
                         a href="/news" class="#{current_page?('/news') ? 'active' : ''}" Новости
                       li
-                        a href="/for_applicants" Абитуриентам
-                      li
                         a href="/for_students"  Студентам
                       li
-                        a href="/for_teachers"  Преподавателям
+                        a href="/for_applicants" Абитуриентам
+                      li
+                        a href="/postgraduate_school"  Аспирантура и докторантура
                       li.last
-                        a href="/postgraduate_school"  Аспирантура
+                        a href="/edu_standarts" Образовательные стандарты
                   li.sep
                   li = link_to "Расписание", timetables_path, class: "#{current_page?(timetables_path) ? 'active' : ''}"
                   li.sep
