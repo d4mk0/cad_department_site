@@ -89,14 +89,15 @@ html lang="ru"
                   li.sep
                   li = link_to "Расписание", timetables_path, class: "#{current_page?(timetables_path) ? 'active' : ''}"
                   li.sep
-                  li.dropdown
-                    a.firstLevel.hasSubMenu href="#" Материалы
-                    ul.subMenu style="display: none;"
-                      li
-                        = link_to "По дисциплинам", disciplines_path
-                      li.last
-                        = link_to "Все материалы", docs_path
-                  li.sep
+                  - if current_user.present?
+                    li.dropdown
+                      a.firstLevel.hasSubMenu href="#" Материалы
+                      ul.subMenu style="display: none;"
+                        li
+                          = link_to "По дисциплинам", disciplines_path
+                        li.last
+                          = link_to "Все материалы", docs_path
+                    li.sep
                   li= link_to "Объявления", ads_path, class: "#{current_page?(ads_path) ? 'active' : ''}"
                   li.sep
                   li= link_to "Трудоустройство", employment_ads_path, class: "#{current_page?(employment_ads_path) ? 'active' : ''}"
