@@ -1,5 +1,5 @@
 class DocsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :my]
+  before_action :authenticate_user!#, only: [:new, :create, :edit, :update, :destroy, :my]
   before_action :set_doc, only: [:show, :edit, :update, :destroy]
   before_action :check_user, only: [:new, :create, :edit, :update, :destroy, :my]
   before_action :check_permissions, only: [:update, :destroy]
@@ -87,7 +87,7 @@ class DocsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def doc_params
-    params.require(:doc).permit(:name, :discipline_id, versions_attributes: [:path])
+    params.require(:doc).permit(:name, :discipline_id, :published, versions_attributes: [:path])
   end
 
   def check_user

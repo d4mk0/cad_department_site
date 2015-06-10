@@ -1,10 +1,17 @@
 class DisciplinesController < ApplicationController
+  before_action :authenticate_user!#, only: [:new, :create, :edit, :update, :destroy, :my]
   before_action :set_discipline, only: [:show, :edit, :update, :destroy]
+  before_action :check_user, only: [:new, :create, :edit, :update, :destroy, :my]
+  before_action :check_permissions, only: [:update, :destroy]
 
   # GET /disciplines
   # GET /disciplines.json
   def index
-    @disciplines = Discipline.all
+    @disciplines = if current_user.try(:admin?)
+      Discipline.all
+    else
+      Discipline.for_front
+    end
   end
 
   def my
@@ -46,7 +53,7 @@ class DisciplinesController < ApplicationController
   def update
     respond_to do |format|
       if @discipline.update(discipline_params)
-        format.html { redirect_to @discipline, notice: 'Discipline was successfully updated.' }
+        format.html { redirect_to @discipline, notice: 'Дисциплина была успешно обновлена.' }
         format.json { render :show, status: :ok, location: @discipline }
       else
         format.html { render :edit }
@@ -60,19 +67,33 @@ class DisciplinesController < ApplicationController
   def destroy
     @discipline.destroy
     respond_to do |format|
-      format.html { redirect_to disciplines_url, notice: 'Discipline was successfully destroyed.' }
+      format.html { redirect_to disciplines_url, notice: 'Дисциплина была успешно удалена.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_discipline
-      @discipline = Discipline.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_discipline
+    @discipline = Discipline.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def discipline_params
-      params.require(:discipline).permit(:name, :description)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def discipline_params
+    params.require(:discipline).permit(:name, :description, :published)
+  end
+
+  def check_user
+    unless current_user.can_upload_doc?
+      flash[:error] = 'У вас не достаточно прав'
+      redirect_to disciplines_path
     end
+  end
+
+  def check_permissions
+    unless current_user.can_manage_discipline?(@discipline)
+      flash[:error] = 'Отсутствуют права доступа'
+      redirect_to disciplines_path
+    end
+  end
 end

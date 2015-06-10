@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518125951) do
+ActiveRecord::Schema.define(version: 20150609134045) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -54,19 +54,21 @@ ActiveRecord::Schema.define(version: 20150518125951) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "disciplines", force: :cascade do |t|
-    t.string   "name",        limit: 255,   null: false
-    t.text     "description", limit: 65535, null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "user_id",     limit: 4,     null: false
+    t.string   "name",        limit: 255,                  null: false
+    t.text     "description", limit: 65535,                null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "user_id",     limit: 4,                    null: false
+    t.boolean  "published",   limit: 1,     default: true, null: false
   end
 
   create_table "docs", force: :cascade do |t|
-    t.string   "name",          limit: 255, null: false
-    t.integer  "user_id",       limit: 4,   null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name",          limit: 255,                null: false
+    t.integer  "user_id",       limit: 4,                  null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "discipline_id", limit: 4
+    t.boolean  "published",     limit: 1,   default: true, null: false
   end
 
   add_index "docs", ["user_id"], name: "index_docs_on_user_id", using: :btree
@@ -128,9 +130,9 @@ ActiveRecord::Schema.define(version: 20150518125951) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name",             limit: 255,                 null: false
-    t.string   "last_name",              limit: 255,                 null: false
-    t.string   "patronymic",             limit: 255,                 null: false
+    t.string   "first_name",             limit: 255, default: "",    null: false
+    t.string   "last_name",              limit: 255, default: "",    null: false
+    t.string   "patronymic",             limit: 255, default: "",    null: false
     t.boolean  "admin",                  limit: 1,   default: false, null: false
     t.boolean  "teacher",                limit: 1,   default: false, null: false
     t.string   "ftp_path",               limit: 255

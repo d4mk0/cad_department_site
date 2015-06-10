@@ -60,11 +60,13 @@ ru:
         name: Название
         discipline: Дисциплина
         discipline_id: Дисциплина
+        published: Опубликовано
       version:
         file: Файл
       discipline:
         name: Название
         description: Описание
+        published: Опубликовано
       ad:
         title: Заголовок
         text: Текст

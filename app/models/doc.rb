@@ -4,7 +4,8 @@ class Doc < ActiveRecord::Base
 
   has_many :versions, dependent: :destroy
 
-  scope :for_front, -> { joins(:versions).where.not(versions: { path: nil }).distinct }
+  scope :published, -> { where(published: true) }
+  scope :for_front, -> { published.joins(:versions).where.not(versions: { path: nil }).distinct }
 
   accepts_nested_attributes_for :versions
 
